@@ -1,21 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import FormTestMUI from './components/FormTestMUI';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}.
-    </Typography>
-  );
-}
+import FormTest from './components/FormTestMUI';
 
 export default function App() {
   return (
@@ -24,8 +11,7 @@ export default function App() {
         <Typography variant="h4" component="h1" gutterBottom>
           Prueba de formulario con MUI & React Hook Form
         </Typography>
-        <FormTestMUI />
-        {/* <Copyright /> */}
+        <FormTest />
       </Box>
     </Container>
   );

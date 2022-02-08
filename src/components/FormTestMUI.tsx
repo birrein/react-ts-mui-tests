@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Alert from '@mui/material/Alert';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
@@ -22,26 +23,20 @@ type Inputs = {
   remember: boolean;
 };
 
-export default function SignIn() {
+export default function FormTest() {
+  const [loginSuccess, setloginSuccess] = useState(false);
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setloginSuccess(true);
+  };
 
   // console.log(watch('email')); // watch input value by passing the name of it
-
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   // eslint-disable-next-line no-console
-  //   console.log({
-  //     email: data.get('email'),
-  //     password: data.get('password'),
-  //   });
-  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -61,6 +56,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Iniciar sesión
           </Typography>
+
           <Box
             component="form"
             onSubmit={handleSubmit(onSubmit)}
@@ -111,6 +107,11 @@ export default function SignIn() {
               }
               label="Recordarme"
             />
+
+            {loginSuccess && (
+              <Alert severity="success">Sesión iniciada correctamente.</Alert>
+            )}
+
             <Button
               type="submit"
               fullWidth
@@ -119,6 +120,7 @@ export default function SignIn() {
             >
               Enviar
             </Button>
+
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
