@@ -26,7 +26,7 @@ type Inputs = {
  *
  * @return {JSX.Element}
  */
-export default function FormTest() {
+export default function LoginForm() {
   const [loginSuccess, setloginSuccess] = useState(false);
 
   const {
