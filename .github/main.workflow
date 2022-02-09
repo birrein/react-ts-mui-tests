@@ -17,5 +17,5 @@ action "Build app" {
 action "Run integration tests" {
   uses = "docker://circleci/node:8-browsers"
   needs = "Build app"
-  runs = "npm run e2e:github"
+  runs = "npm run testcafe:github"
 }
