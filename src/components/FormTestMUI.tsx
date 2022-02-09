@@ -32,6 +32,7 @@ export default function FormTest() {
     watch,
     formState: { errors },
   } = useForm<Inputs>();
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     setloginSuccess(true);
   };
@@ -41,7 +42,6 @@ export default function FormTest() {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
