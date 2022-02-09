@@ -19,6 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "testcafe": "testcafe chrome --app 'npm run start'",
+    "testcafe:github": "testcafe chrome:headless --app 'npm run serve:build'",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,ts,tsx src",
     "lint:fix": "eslint --fix --ext .js,.jsx,ts,tsx src"
