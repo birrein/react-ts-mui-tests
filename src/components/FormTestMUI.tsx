@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -12,8 +11,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
+import {useForm, SubmitHandler} from 'react-hook-form';
 
 const theme = createTheme();
 
@@ -23,14 +22,18 @@ type Inputs = {
   remember: boolean;
 };
 
+/**
+ *
+ * @return {JSX.Element}
+ */
 export default function FormTest() {
   const [loginSuccess, setloginSuccess] = useState(false);
 
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    // watch,
+    formState: {errors},
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
@@ -50,7 +53,7 @@ export default function FormTest() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{m: 1, bgcolor: 'secondary.main'}}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -61,7 +64,7 @@ export default function FormTest() {
             component="form"
             onSubmit={handleSubmit(onSubmit)}
             noValidate
-            sx={{ mt: 1 }}
+            sx={{mt: 1}}
           >
             <TextField
               margin="normal"
@@ -116,7 +119,7 @@ export default function FormTest() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{mt: 3, mb: 2}}
             >
               Enviar
             </Button>
