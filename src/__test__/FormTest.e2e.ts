@@ -1,6 +1,9 @@
 /* eslint-disable new-cap */
 import {Selector} from 'testcafe';
 
+// to fix testcafe + jest type collision
+declare const test: TestFn;
+
 fixture`First test with TestCafe`.page`http://localhost:3000`;
 
 test('Validate login form', async (t) => {
